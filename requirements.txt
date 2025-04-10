@@ -4,6 +4,8 @@
 #
 #    pip-compile
 #
+--extra-index-url https://www.piwheels.org/simple
+
 certifi==2025.1.31
     # via influxdb-client
 colorzero==2.0

@@ -1,16 +1,21 @@
-import threading
-from gpiozero import PWMLED, MCP3008
-
 import os, time
+import threading
+
+from gpiozero import PWMLED, MCP3008
 from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 
+from dotenv import load_dotenv
+load_dotenv()
 
-INFLUX_HOST = os.environ.get("http://raspberrypi:8086")
+
+MOTOR_PWM_PIN = 19
+SENSOR_CHANNEL = 0
+
+INFLUX_HOST = os.environ.get("INFLUX_HOST")
 INFLUX_TOKEN = os.environ.get("INFLUX_TOKEN")
 INFLUX_ORG = os.environ.get("INFLUX_ORG")
 INFLUX_BUCKET = os.environ.get("INFLUX_BUCKET")
-
 
 
 def read_and_save_humidity(sensor: MCP3008, influx_db_client: InfluxDBClient) -> float:
