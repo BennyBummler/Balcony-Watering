@@ -1,0 +1,6 @@
+dotenv
+gpiozero
+influxdb-client
+rpi.gpio
+setuptools
+wheel

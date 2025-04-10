@@ -1,0 +1,4 @@
+.env
+env
+influxdata-archive.key
+__pycache__
